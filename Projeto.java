@@ -1,23 +1,14 @@
-import java.time.LocalDate;
-
 public class Projeto {
     private String nome;
-    private LocalDate prazo;
-    private Funcionario responsavel;
+    private String descricao;
+    private double orcamento;
 
-    // Construtor com todos os atributos
-    public Projeto(String nome, LocalDate prazo, Funcionario responsavel) {
+    public Projeto(String nome, String descricao, double orcamento) {
         this.nome = nome;
-        this.prazo = prazo;
-        this.responsavel = responsavel;
+        this.descricao = descricao;
+        this.orcamento = orcamento;
     }
 
-    // Construtor com parâmetros reduzidos
-    public Projeto(String nome, LocalDate prazo) {
-        this(nome, prazo, null);
-    }
-
-    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -26,34 +17,33 @@ public class Projeto {
         this.nome = nome;
     }
 
-    public LocalDate getPrazo() {
-        return prazo;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setPrazo(LocalDate prazo) {
-        this.prazo = prazo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public Funcionario getResponsavel() {
-        return responsavel;
+    public double getOrcamento() {
+        return orcamento;
     }
 
-    public void setResponsavel(Funcionario responsavel) {
-        this.responsavel = responsavel;
+    public void setOrcamento(double orcamento) {
+        this.orcamento = orcamento;
     }
 
-    // Método para adicionar um funcionário ao projeto
-    public void adicionarFuncionario(Funcionario funcionario) {
-        this.responsavel = funcionario;
+    public void exibirDetalhes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Orçamento: " + orcamento);
     }
 
-    // Método para remover o funcionário do projeto
-    public void removerFuncionario() {
-        this.responsavel = null;
+    public void ajustarOrcamento(double novoOrcamento) {
+        orcamento = novoOrcamento;
     }
 
-    // Método para validar se o prazo é maior que a data atual
-    public boolean validarPrazo() {
-        return this.prazo.isAfter(LocalDate.now());
+    public void atualizarDescricao(String novaDescricao) {
+        descricao = novaDescricao;
     }
 }
